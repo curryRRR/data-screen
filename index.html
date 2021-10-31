@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 头部盒子 -->
+    <header>
+        <h1>市场需求数据分析</h1>
+        <div class="showTime"></div>
+    </header>
+
+    <!-- 主体盒子 -->
+    <section class="mainBox">
+        <div class="column">
+            <div class="panel bar">
+                <h2>就业行业</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>培训人数</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel pie">
+                <h2>年龄分布</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+        </div>
+        <!-- 中间内容 -->
+        <div class="column">
+            <!-- no模块 -->
+            <div class="no">
+                <!-- 数字 -->
+                <div class="no-hd">
+                    <ul>
+                        <li>24142</li>
+                        <li>14144</li>
+                    </ul>
+                </div>
+                <!-- 文字 -->
+                <div class="no-bd">
+                    <ul>
+                        <li>后端需求人数</li>
+                        <li>后端供应人数</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- map模块 -->
+            <div class="map">
+                <!-- 球体模型 -->
+                <div class="map1"></div>
+                <!-- 移动模型1 -->
+                <div class="map2"></div>
+                <!-- 移动模型2 -->
+                <div class="map3"></div>
+                <!-- 地图模块 -->
+                <div class="chart">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧内容 -->
+        <div class="column">
+            <div class="panel bar2">
+                <h2>技术栈</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel line2">
+                <h2>粉丝来源</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel pie2">
+                <h2>城市分布</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        //显示当前的时间信息
+        //格式: 当前时间: 2021年7月31日-0时0分0秒
+        var t = null;
+        t = setTimeout(time,1000);
+        function time(){
+            clearTimeout(t);//清除计时器
+            var date = new Date();//获取当前时间
+            var year = date.getFullYear(); //获取年
+            var month = date.getMonth()+1; //获取月
+            var day = date.getDate(); //获取日
+            var hour = date.getHours(); //获取小时
+            var min = date.getMinutes(); //获取分
+            var sec = date.getSeconds(); //获取秒
+            var current = "当前时间:" + year + "年" + month + "月" + day + "日-" + hour + "时" + min + "分" + sec + "秒"; 
+            document.querySelector(".showTime").innerHTML = current;
+            t = setTimeout(time,1000);//设置定时器
+        }
+    </script>
+
+    <script src="js/flexible.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/jQuery.js"></script>
+    //引入中国地图模块
+    <script src="js/china.js"></script>
+    //航线模拟
+    <script src="js/myMap.js"></script>
+</body>
+</html>
